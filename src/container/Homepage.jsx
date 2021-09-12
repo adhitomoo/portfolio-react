@@ -1,26 +1,21 @@
 import React from 'react';
-// import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import { Container } from 'react-bootstrap'
+
+import Main from '../pages/Index'
 import Navbar from '../components/Navbar';
-
-import styled from '@emotion/styled'
-
-const Button = styled.button`
-  padding: 32px;
-  background-color: hotpink;
-  font-size: 24px;
-  border-radius: 4px;
-  color: black;
-  font-weight: bold;
-  &:hover {
-    color: white;
-  }
-`
 
 function Homepage() {
   return (
-    <div>
-      <Navbar />
-    </div>
+    <Router>
+      <div className="tw-bg-primary">
+        <Navbar />
+        <Container>
+          <Route path="/" exact component={ Main }></Route>
+        </Container>
+      </div>
+    </Router>
   );
 }
 
